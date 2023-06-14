@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Almacen.Web", "Almacen.Web.csproj", "{7359F74D-3D29-4EBB-A4B3-C83846FF9E66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Almacen.Web", "Almacen.Web\Almacen.Web.csproj", "{E8F375B5-3964-48B1-AC70-553E5AACDDCF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Almacen.Models", "..\Almacen.Models\Almacen.Models.csproj", "{9DB48763-F6EE-4C32-B83B-A54C3F745D52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Almacen.Models", "Almacen.Models\Almacen.Models.csproj", "{0C87CAE3-2014-4EF0-BC9C-941E7B13C6B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Almacen.Logic", "..\Almacen.Logic\Almacen.Logic.csproj", "{81D11667-1EC7-4B27-B6EE-327BEBD8BCFE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Almacen.Logic", "Almacen.Logic\Almacen.Logic.csproj", "{51F37582-07A0-4E3A-AE87-F56B39CE1A77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{7359F74D-3D29-4EBB-A4B3-C83846FF9E66}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7359F74D-3D29-4EBB-A4B3-C83846FF9E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7359F74D-3D29-4EBB-A4B3-C83846FF9E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7359F74D-3D29-4EBB-A4B3-C83846FF9E66}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9DB48763-F6EE-4C32-B83B-A54C3F745D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9DB48763-F6EE-4C32-B83B-A54C3F745D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9DB48763-F6EE-4C32-B83B-A54C3F745D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9DB48763-F6EE-4C32-B83B-A54C3F745D52}.Release|Any CPU.Build.0 = Release|Any CPU
-		{81D11667-1EC7-4B27-B6EE-327BEBD8BCFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{81D11667-1EC7-4B27-B6EE-327BEBD8BCFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{81D11667-1EC7-4B27-B6EE-327BEBD8BCFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{81D11667-1EC7-4B27-B6EE-327BEBD8BCFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8F375B5-3964-48B1-AC70-553E5AACDDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8F375B5-3964-48B1-AC70-553E5AACDDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8F375B5-3964-48B1-AC70-553E5AACDDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8F375B5-3964-48B1-AC70-553E5AACDDCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C87CAE3-2014-4EF0-BC9C-941E7B13C6B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C87CAE3-2014-4EF0-BC9C-941E7B13C6B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C87CAE3-2014-4EF0-BC9C-941E7B13C6B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C87CAE3-2014-4EF0-BC9C-941E7B13C6B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51F37582-07A0-4E3A-AE87-F56B39CE1A77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51F37582-07A0-4E3A-AE87-F56B39CE1A77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51F37582-07A0-4E3A-AE87-F56B39CE1A77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51F37582-07A0-4E3A-AE87-F56B39CE1A77}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
