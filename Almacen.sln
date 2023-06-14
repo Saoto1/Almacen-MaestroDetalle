@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Almacen", "Almacen.csproj", "{7359F74D-3D29-4EBB-A4B3-C83846FF9E66}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Almacen.Web", "Almacen.Web.csproj", "{7359F74D-3D29-4EBB-A4B3-C83846FF9E66}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Almacen.Models", "..\Almacen.Models\Almacen.Models.csproj", "{9DB48763-F6EE-4C32-B83B-A54C3F745D52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Almacen.Logic", "..\Almacen.Logic\Almacen.Logic.csproj", "{81D11667-1EC7-4B27-B6EE-327BEBD8BCFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{7359F74D-3D29-4EBB-A4B3-C83846FF9E66}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7359F74D-3D29-4EBB-A4B3-C83846FF9E66}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7359F74D-3D29-4EBB-A4B3-C83846FF9E66}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DB48763-F6EE-4C32-B83B-A54C3F745D52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DB48763-F6EE-4C32-B83B-A54C3F745D52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DB48763-F6EE-4C32-B83B-A54C3F745D52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DB48763-F6EE-4C32-B83B-A54C3F745D52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81D11667-1EC7-4B27-B6EE-327BEBD8BCFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81D11667-1EC7-4B27-B6EE-327BEBD8BCFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81D11667-1EC7-4B27-B6EE-327BEBD8BCFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81D11667-1EC7-4B27-B6EE-327BEBD8BCFE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
