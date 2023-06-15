@@ -149,19 +149,31 @@ namespace Almacen.Logic.Logic
 
         public async Task<List<Equipo>> Search(Equipo prestamo)
         {
-            var query = _dbcontext.Equipo.AsQueryable();
+            try
+            {
 
-            if (prestamo.Id > 0) query = query.Where(s => s.Id == prestamo.Id);
+                var query = _dbcontext.Equipo.AsQueryable();
 
-            if (prestamo.Id > 0) query = query.Where(s => s.MarcaId == prestamo.MarcaId);
+                if (prestamo.Id > 0) query = query.Where(s => s.Id == prestamo.Id);
 
-            if (!string.IsNullOrWhiteSpace(prestamo.NumeroSerie)) query = query.Where(s => s.NumeroSerie == prestamo.NumeroSerie);
+                if (prestamo.Id > 0) query = query.Where(s => s.MarcaId == prestamo.MarcaId);
 
-            if (!string.IsNullOrWhiteSpace(prestamo.NombreEquipo)) query = query.Where(s => s.NombreEquipo == prestamo.NombreEquipo);
+                if (!string.IsNullOrWhiteSpace(prestamo.NumeroSerie)) query = query.Where(s => s.NumeroSerie == prestamo.NumeroSerie);
 
-            if (!string.IsNullOrWhiteSpace(prestamo.Descripcion)) query = query.Where(s => s.Descripcion == prestamo.Descripcion);
+                if (!string.IsNullOrWhiteSpace(prestamo.NombreEquipo)) query = query.Where(s => s.NombreEquipo == prestamo.NombreEquipo);
 
-            return query.ToList();
+                if (!string.IsNullOrWhiteSpace(prestamo.Descripcion)) query = query.Where(s => s.Descripcion == prestamo.Descripcion);
+
+                return query.ToList();
+
+            }
+            catch (Exception e)
+            {
+
+                throw;
+            }
+
+
         }
 
 

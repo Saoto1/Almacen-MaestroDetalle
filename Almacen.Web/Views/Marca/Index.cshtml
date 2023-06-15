@@ -6,6 +6,60 @@
 
 <h1>Index</h1>
 
+
+<style>
+    .btn {
+        margin: 20px;
+        margin-left: 1px;
+    }
+</style>
+<h1>Buscar</h1>
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Buscar">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">Nombre</label>
+                        <input type="text" class="form-control" name="Nombre" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">Descripcion</label>
+                        <input type="text" class="form-control" name="Descripcion" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">TipoHerramienta</label>
+                        <input type="text" class="form-control" name="TipoHerramienta" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">Exactitud</label>
+                        <input type="text" class="form-control" name="Exactitud" />
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="form-group">
+
+                        <input type="submit" value="Buscar" class="btn btn-primary" />
+                        <a asp-action="Create" class="btn btn-primary">Crear</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
 <p>
     <a asp-action="Create">Create New</a>
 </p>
@@ -28,26 +82,27 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nombre)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Descripcion)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TipoHerramienta)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Exactitud)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TipoHerramienta)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Exactitud)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

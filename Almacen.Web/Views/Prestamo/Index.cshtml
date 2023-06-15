@@ -4,7 +4,47 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+
+
+<h1>Buscar</h1>
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Buscar">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">Persona</label>
+                        <input type="text" class="form-control" name="Persona" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">FechaInicio</label>
+                        <input type="datetime" class="form-control" name="FechaInicio" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">FechaFin</label>
+                        <input type="datetime" class="form-control" name="FechaFin" />
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label class="control-label">Estado</label>
+                        <input type="text" class="form-control" name="Estado" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Buscar" class="btn btn-primary" />
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>
+
 
 <p>
     <a asp-action="Create">Create New</a>

@@ -19,6 +19,20 @@ namespace Almacen.Web.Controllers
             _marca = marca;
         }
 
+        public async Task<ActionResult> Buscar(Equipo equipo)
+        {
+            try
+            {
+                var record = await Equipo.SearchAnyParameter(equipo);
+                return View("Index", record);
+
+            }
+            catch (Exception e)
+            {
+                return View("Index");
+            }
+        }
+
         // GET: EquipoController
         public ActionResult Index()
         {

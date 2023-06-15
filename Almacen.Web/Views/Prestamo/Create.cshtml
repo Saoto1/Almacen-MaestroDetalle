@@ -2,7 +2,14 @@
 
 @{
     ViewData["Title"] = "Create";
+
+  
+    List<Almacen.Models.Models.Marca> marcas = ViewBag.Marcas as List<Almacen.Models.Models.Marca>;
+    List<Almacen.Models.Models.Equipo> equipos = ViewBag.Equipo as List<Almacen.Models.Models.Equipo>;
+
 }
+
+
 
 <h1>Create</h1>
 
@@ -18,12 +25,26 @@
                 <span asp-validation-for="Persona" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="MarcaId" class="control-label"></label>
-                <select asp-for="MarcaId" class ="form-control" asp-items="ViewBag.MarcaId"></select>
+                <label asp-for="Marca" class="control-label"></label>
+                <select asp-for="MarcaId" class="form-control">
+                    <option selected value="">SELECCIONAR</option>
+                    @foreach (var item in marcas)
+                    {
+                        <option value="@item.Id">@item.Nombre</option>
+                    }
+                </select>
+
             </div>
             <div class="form-group">
-                <label asp-for="EquipoId" class="control-label"></label>
-                <select asp-for="EquipoId" class ="form-control" asp-items="ViewBag.EquipoId"></select>
+                <label asp-for="Equipo" class="control-label"></label>
+                <select asp-for="EquipoId" class="form-control">
+                    <option selected value="">SELECCIONAR</option>
+                    @foreach (var item in equipos)
+                    {
+                        <option value="@item.Id">@item.NombreEquipo</option>
+                    }
+                </select>
+
             </div>
             <div class="form-group">
                 <label asp-for="FechaInicio" class="control-label"></label>

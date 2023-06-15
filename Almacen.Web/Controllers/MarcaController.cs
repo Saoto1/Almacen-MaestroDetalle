@@ -2,6 +2,7 @@
 using Almacen.Models.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 
 namespace Almacen.Web.Controllers
 {
@@ -13,6 +14,21 @@ namespace Almacen.Web.Controllers
         {
             _Marca = marca;
         }
+
+        public async Task<ActionResult> Buscar( Marca marca)
+        {
+            try
+            {
+              var record = await _Marca.SearchAnyParameter(marca);
+               return View("Index", record);
+
+            }
+            catch (Exception e)
+            {
+                return View("Index");
+            }
+        }
+
 
         // GET: MarcaController
         // GET: EquipoController
