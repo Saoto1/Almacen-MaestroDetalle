@@ -26,7 +26,7 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo GetAll");
-                var ListOfMarca = _dbcontext._Marca.ToList();
+                var ListOfMarca = _dbcontext.Marca.ToList();
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetAll");
                 return ListOfMarca;
@@ -43,7 +43,7 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo GetById");
-                var Prestamo = _dbcontext._Marca.FirstOrDefault(s => s.Id == Id);
+                var Prestamo = _dbcontext.Marca.FirstOrDefault(s => s.Id == Id);
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetById");
                 return Prestamo;
@@ -61,9 +61,9 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo GetAll");
-                var pMarca = _dbcontext._Marca.FirstOrDefault(s => s.Id == Id);
+                var pMarca = _dbcontext.Marca.FirstOrDefault(s => s.Id == Id);
 
-                _dbcontext._Marca.Remove(pMarca);
+                _dbcontext.Marca.Remove(pMarca);
                 var result = _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetAll");
@@ -83,7 +83,7 @@ namespace Almacen.Logic.Logic
             {
                 _logger.LogWarning("Inica metodo Create");
 
-                _dbcontext._Marca.Add(marca);
+                _dbcontext.Marca.Add(marca);
                 _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo Create");
@@ -103,14 +103,14 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo Edit");
-                var pMarca = _dbcontext._Marca.FirstOrDefault(s => s.Id == marca.Id);
+                var pMarca = _dbcontext.Marca.FirstOrDefault(s => s.Id == marca.Id);
 
                 pMarca.Nombre = marca.Nombre;
                 pMarca.Descripcion = marca.Descripcion;
                 pMarca.TipoHerramienta = marca.TipoHerramienta;
                 pMarca.Exactitud = marca.Exactitud;
 
-                _dbcontext._Marca.Update(pMarca);
+                _dbcontext.Marca.Update(pMarca);
                 _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo Edit");
@@ -147,7 +147,7 @@ namespace Almacen.Logic.Logic
 
         public async Task<List<Marca>> Search(Marca marca)
         {
-            var query = _dbcontext._Marca.AsQueryable();
+            var query = _dbcontext.Marca.AsQueryable();
 
 
             if (marca.Id > 0) query = query.Where(s => s.Id == marca.Id);

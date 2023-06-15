@@ -1,14 +1,26 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Almacen.Logic.Interfacez;
+using Almacen.Models.Models;
 
 namespace Almacen.Web.Controllers
 {
     public class PrestamoController : Controller
     {
+        private readonly ILogger<PrestamoController> _logger;
+        private readonly IPrestamo _prestamo;
+
+        public PrestamoController(IPrestamo prestamo, ILogger<PrestamoController> logger)
+        {
+            _prestamo = prestamo;
+            _logger = logger;
+        }
+
         // GET: PrestamoController
         public ActionResult Index()
         {
-            return View();
+            var all = _prestamo.GetAll();
+            return View(all);
         }
 
         // GET: PrestamoController/Details/5

@@ -29,7 +29,7 @@ namespace Almacen.Logic.Logic
             {
 
                 _logger.LogWarning("Inica metodo GetAll");
-                var ListOfPrestamo = _dbcontext._Prestamo.ToList();
+                var ListOfPrestamo = _dbcontext.Prestamo.ToList();
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetAll");
                 return ListOfPrestamo;
@@ -46,7 +46,7 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo GetById");
-                var Prestamo = _dbcontext._Prestamo.FirstOrDefault(s => s.Id == Id);
+                var Prestamo = _dbcontext.Prestamo.FirstOrDefault(s => s.Id == Id);
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetById");
                 return Prestamo;
@@ -64,9 +64,9 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo GetAll");
-                var pPrestamo = _dbcontext._Prestamo.FirstOrDefault(s => s.Id == Id);
+                var pPrestamo = _dbcontext.Prestamo.FirstOrDefault(s => s.Id == Id);
 
-                _dbcontext._Prestamo.Remove(pPrestamo);
+                _dbcontext.Prestamo.Remove(pPrestamo);
                 var result = _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetAll");
@@ -87,7 +87,7 @@ namespace Almacen.Logic.Logic
             {
                 _logger.LogWarning("Inica metodo Create");
 
-                _dbcontext._Prestamo.Add(prestamo);
+                _dbcontext.Prestamo.Add(prestamo);
                 _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo Create");
@@ -106,7 +106,7 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo Edit");
-                var pPrestamo = _dbcontext._Prestamo.FirstOrDefault(s => s.Id == prestamo.Id);
+                var pPrestamo = _dbcontext.Prestamo.FirstOrDefault(s => s.Id == prestamo.Id);
 
                 pPrestamo.Estado = prestamo.Estado;
                 pPrestamo.Persona = prestamo.Persona;
@@ -115,7 +115,7 @@ namespace Almacen.Logic.Logic
                 pPrestamo.FechaInicio = prestamo.FechaInicio;
                 pPrestamo.FechaFin = prestamo.FechaFin;
 
-                _dbcontext._Prestamo.Update(pPrestamo);
+                _dbcontext.Prestamo.Update(pPrestamo);
                 _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo Edit");
@@ -149,7 +149,7 @@ namespace Almacen.Logic.Logic
 
         public async Task<List<Prestamo>> Search(Prestamo prestamo)
         {
-            var query = _dbcontext._Prestamo.AsQueryable();
+            var query = _dbcontext.Prestamo.AsQueryable();
 
 
             if (prestamo.Id > 0) query = query.Where(s => s.Id == prestamo.Id);

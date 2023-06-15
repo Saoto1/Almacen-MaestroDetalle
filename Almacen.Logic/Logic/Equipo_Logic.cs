@@ -1,4 +1,5 @@
-﻿using Almacen.Models;
+﻿using Almacen.Logic.Interfacez;
+using Almacen.Models;
 using Almacen.Models.Models;
 using Microsoft.Extensions.Logging;
 using System;
@@ -9,12 +10,12 @@ using System.Threading.Tasks;
 
 namespace Almacen.Logic.Logic
 {
-    public class Equipo_Logic
+    public class Equipo_Logic : IEquipo
     {
         private readonly ILogger<Equipo_Logic> _logger;
         private readonly AlmacenContext _dbcontext;
 
-        public Equipo_Logic (ILogger<Equipo_Logic> logger, AlmacenContext context)
+        public Equipo_Logic(ILogger<Equipo_Logic> logger, AlmacenContext context)
         {
             _logger = logger;
             _dbcontext = context;
@@ -25,7 +26,7 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo GetAll");
-                var ListOfPrestamo = _dbcontext._Equipo.ToList();
+                var ListOfPrestamo = _dbcontext.Equipo.ToList();
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetAll");
                 return ListOfPrestamo;
@@ -36,14 +37,14 @@ namespace Almacen.Logic.Logic
                 return new List<Equipo>() { };
             }
         }
-    
+
         public Equipo GetById(int Id)
         {
             try
             {
                 _logger.LogWarning("Inica metodo GetById");
 
-                Equipo equipo = _dbcontext._Equipo.FirstOrDefault(x => x.Id == Id);
+                Equipo equipo = _dbcontext.Equipo.FirstOrDefault(x => x.Id == Id);
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetById");
                 return equipo;
@@ -61,9 +62,9 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo Delete");
-                var pPrestamo = _dbcontext._Equipo.FirstOrDefault(s => s.Id == Id);
+                var pPrestamo = _dbcontext.Equipo.FirstOrDefault(s => s.Id == Id);
 
-                _dbcontext._Equipo.Remove(pPrestamo);
+                _dbcontext.Equipo.Remove(pPrestamo);
                 var result = _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo Delete");
@@ -84,7 +85,7 @@ namespace Almacen.Logic.Logic
             {
                 _logger.LogWarning("Inica metodo Create");
 
-                _dbcontext._Equipo.Add(equipo);
+                _dbcontext.Equipo.Add(equipo);
                 _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo Create");
@@ -103,14 +104,14 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo Edit");
-                var pPrestamo = _dbcontext._Equipo.FirstOrDefault(s => s.Id == prestamo.Id);
+                var pPrestamo = _dbcontext.Equipo.FirstOrDefault(s => s.Id == prestamo.Id);
 
                 pPrestamo.Marca = prestamo.Marca;
                 pPrestamo.NombreEquipo = prestamo.NombreEquipo;
                 pPrestamo.NumeroSerie = prestamo.NumeroSerie;
                 pPrestamo.Descripcion = prestamo.Descripcion;
 
-                _dbcontext._Equipo.Update(pPrestamo);
+                _dbcontext.Equipo.Update(pPrestamo);
                 _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo Edit");
@@ -148,7 +149,7 @@ namespace Almacen.Logic.Logic
 
         public async Task<List<Equipo>> Search(Equipo prestamo)
         {
-            var query = _dbcontext._Equipo.AsQueryable();
+            var query = _dbcontext.Equipo.AsQueryable();
 
             if (prestamo.Id > 0) query = query.Where(s => s.Id == prestamo.Id);
 

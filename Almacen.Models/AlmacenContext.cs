@@ -9,24 +9,30 @@ using System.Threading.Tasks;
 
 namespace Almacen.Models
 {
-    public class AlmacenContext: DbContext
+    public class AlmacenContext : DbContext
     {
-        private readonly IConfiguration _configuration;
-        
-        public AlmacenContext (IConfiguration config)
-        {
-            _configuration = config;
-        }
+        //private readonly IConfiguration _configuration;
 
-        public DbSet<Equipo> _Equipo { get; set; }
-        public DbSet<Marca> _Marca { get; set; }
-        public DbSet<Prestamo> _Prestamo { get; set; }
+        //public AlmacenContext (IConfiguration config)
+        //{
+        //    _configuration = config;
+        //}
+
+        public DbSet<Equipo> Equipo { get; set; }
+        public DbSet<Marca> Marca { get; set; }
+        public DbSet<Prestamo> Prestamo { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string ConnectionString = _configuration.GetConnectionString("MiConexionBD");
 
-            optionsBuilder.UseSqlServer(ConnectionString);
+            var config = new ConfigurationBuilder()
+          .AddJsonFile("appsettings.json", optional: false)
+          .Build();
+
+            var DBConnection = config.GetConnectionString("MiConexionBD");
+
+
+            optionsBuilder.UseSqlServer(DBConnection);
         }
 
 

@@ -1,0 +1,15 @@
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\bin\Debug\net6.0\Almacen.Logic.deps.json
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\bin\Debug\net6.0\Almacen.Logic.dll
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\bin\Debug\net6.0\Almacen.Logic.pdb
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\bin\Debug\net6.0\Almacen.Models.dll
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\bin\Debug\net6.0\Almacen.Models.pdb
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\obj\Debug\net6.0\Almacen.Logic.csproj.AssemblyReference.cache
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\obj\Debug\net6.0\Almacen.Logic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\obj\Debug\net6.0\Almacen.Logic.AssemblyInfoInputs.cache
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\obj\Debug\net6.0\Almacen.Logic.AssemblyInfo.cs
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\obj\Debug\net6.0\Almacen.Logic.csproj.CoreCompileInputs.cache
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\obj\Debug\net6.0\Almacen.Logic.csproj.CopyComplete
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\obj\Debug\net6.0\Almacen.Logic.dll
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\obj\Debug\net6.0\refint\Almacen.Logic.dll
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\obj\Debug\net6.0\Almacen.Logic.pdb
+C:\Users\Gamer\source\repos\Almacen\Almacen.Logic\obj\Debug\net6.0\ref\Almacen.Logic.dll

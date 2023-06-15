@@ -1,56 +1,79 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Almacen.Logic.Interfacez;
+using Almacen.Models.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Almacen.Web.Controllers
 {
     public class MarcaController : Controller
     {
+        private readonly IMarca _Marca;
+
+        public MarcaController(IMarca marca )
+        {
+            _Marca = marca;
+        }
+
         // GET: MarcaController
+        // GET: EquipoController
         public ActionResult Index()
         {
-            return View();
+            var all = _Marca.GetAll();
+
+            return View(all);
         }
 
-        // GET: MarcaController/Details/5
+        // GET: EquipoController/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var record = _Marca.GetById(id);
+
+            return View(record);
         }
 
-        // GET: MarcaController/Create
+        // GET: EquipoController/Create
         public ActionResult Create()
         {
+            ViewBag.Marcas = _Marca.GetAll();
             return View();
         }
 
-        // POST: MarcaController/Create
+        // POST: EquipoController/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public ActionResult Create(Marca equipo)
         {
             try
             {
+                var equipocreate = _Marca.Create(equipo);
+
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                ViewBag.Marcas = _Marca.GetAll();
+                return View(equipo);
             }
         }
 
-        // GET: MarcaController/Edit/5
+        // GET: EquipoController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            var record = _Marca.GetById(id);
+
+            return View(record);
         }
 
-        // POST: MarcaController/Edit/5
+        // POST: EquipoController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(Marca equipo)
         {
             try
             {
+
+                var d = _Marca.Edit(equipo);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -59,19 +82,25 @@ namespace Almacen.Web.Controllers
             }
         }
 
-        // GET: MarcaController/Delete/5
-        public ActionResult Delete(int id)
+        // GET: EquipoController/Delete/5
+        public ActionResult Delete(int id, int test)
         {
-            return View();
+            var record = _Marca.GetById(id);
+
+            return View(record);
         }
 
-        // POST: MarcaController/Delete/5
+        // POST: EquipoController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Delete(Marca equipo)
         {
             try
             {
+
+
+                _Marca.Delete(equipo.Id);
+
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -79,5 +108,8 @@ namespace Almacen.Web.Controllers
                 return View();
             }
         }
+
+
+
     }
 }

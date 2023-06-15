@@ -1,0 +1,12 @@
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\bin\Debug\net6.0\Almacen.Models.deps.json
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\bin\Debug\net6.0\Almacen.Models.dll
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\bin\Debug\net6.0\Almacen.Models.pdb
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\obj\Debug\net6.0\Almacen.Models.csproj.AssemblyReference.cache
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\obj\Debug\net6.0\Almacen.Models.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\obj\Debug\net6.0\Almacen.Models.AssemblyInfoInputs.cache
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\obj\Debug\net6.0\Almacen.Models.AssemblyInfo.cs
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\obj\Debug\net6.0\Almacen.Models.csproj.CoreCompileInputs.cache
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\obj\Debug\net6.0\Almacen.Models.dll
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\obj\Debug\net6.0\refint\Almacen.Models.dll
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\obj\Debug\net6.0\Almacen.Models.pdb
+C:\Users\Gamer\source\repos\Almacen\Almacen.Models\obj\Debug\net6.0\ref\Almacen.Models.dll
