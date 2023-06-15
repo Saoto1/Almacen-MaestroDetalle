@@ -13,5 +13,7 @@ namespace Almacen.Models.Models
         public string Descripcion { get; set; }
         public string TipoHerramienta { get; set; }
         public decimal Exactitud { get; set; }
+
+        public bool Activo { get; set; }
     }
 }

@@ -64,7 +64,9 @@ namespace Almacen.Logic.Logic
                 _logger.LogWarning("Inica metodo Delete");
                 var pPrestamo = _dbcontext.Equipo.FirstOrDefault(s => s.Id == Id);
 
-                _dbcontext.Equipo.Remove(pPrestamo);
+                pPrestamo.Activo = false;
+
+                _dbcontext.Equipo.Update(pPrestamo);
                 var result = _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo Delete");
@@ -84,6 +86,8 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo Create");
+
+                equipo.Activo = true;
 
                 _dbcontext.Equipo.Add(equipo);
                 _dbcontext.SaveChanges();
@@ -106,7 +110,7 @@ namespace Almacen.Logic.Logic
                 _logger.LogWarning("Inica metodo Edit");
                 var pPrestamo = _dbcontext.Equipo.FirstOrDefault(s => s.Id == prestamo.Id);
 
-                pPrestamo.Marca = prestamo.Marca;
+                pPrestamo.MarcaId = prestamo.MarcaId;
                 pPrestamo.NombreEquipo = prestamo.NombreEquipo;
                 pPrestamo.NumeroSerie = prestamo.NumeroSerie;
                 pPrestamo.Descripcion = prestamo.Descripcion;
@@ -156,7 +160,9 @@ namespace Almacen.Logic.Logic
 
                 if (prestamo.Id > 0) query = query.Where(s => s.Id == prestamo.Id);
 
-                if (prestamo.Id > 0) query = query.Where(s => s.MarcaId == prestamo.MarcaId);
+                if (prestamo != null) query = query.Where(s => s.Activo == prestamo.Activo);
+
+                if (prestamo.MarcaId > 0) query = query.Where(s => s.MarcaId == prestamo.MarcaId);
 
                 if (!string.IsNullOrWhiteSpace(prestamo.NumeroSerie)) query = query.Where(s => s.NumeroSerie == prestamo.NumeroSerie);
 

@@ -16,6 +16,8 @@ namespace Almacen.Models.Models
         public DateTime FechaFin { get; set; }
         public string Estado { get; set; }
 
+        public bool Activo { get; set; }
+
         // Relación con la entidad Marca
         public Marca? Marca { get; set; }
 

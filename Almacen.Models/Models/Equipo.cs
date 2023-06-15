@@ -15,6 +15,8 @@ namespace Almacen.Models.Models
         public string NumeroSerie { get; set; }
         public string Descripcion { get; set; }
 
+        public bool Activo { get; set; }
+
         // Relación con la entidad Marca
         public Marca Marca { get; set; }
 

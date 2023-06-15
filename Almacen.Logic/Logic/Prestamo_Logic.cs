@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace Almacen.Logic.Logic
@@ -29,7 +30,7 @@ namespace Almacen.Logic.Logic
             {
 
                 _logger.LogWarning("Inica metodo GetAll");
-                var ListOfPrestamo = _dbcontext.Prestamo.ToList();
+                var ListOfPrestamo = _dbcontext.Prestamo. ToList();
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetAll");
                 return ListOfPrestamo;
@@ -66,7 +67,9 @@ namespace Almacen.Logic.Logic
                 _logger.LogWarning("Inica metodo GetAll");
                 var pPrestamo = _dbcontext.Prestamo.FirstOrDefault(s => s.Id == Id);
 
-                _dbcontext.Prestamo.Remove(pPrestamo);
+                pPrestamo.Activo = false;
+
+                _dbcontext.Prestamo.Update(pPrestamo);
                 var result = _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetAll");
@@ -87,6 +90,8 @@ namespace Almacen.Logic.Logic
             {
                 _logger.LogWarning("Inica metodo Create");
 
+
+                prestamo.Activo = true;
                 _dbcontext.Prestamo.Add(prestamo);
                 _dbcontext.SaveChanges();
 
@@ -153,6 +158,8 @@ namespace Almacen.Logic.Logic
 
 
             if (prestamo.Id > 0) query = query.Where(s => s.Id == prestamo.Id);
+
+            if (prestamo != null) query = query.Where(s => s.Activo == prestamo.Activo);
 
             if (!string.IsNullOrWhiteSpace(prestamo.Persona)) query = query.Where(s => s.Persona == prestamo.Persona);
 

@@ -27,6 +27,11 @@ namespace Almacen.Web.Controllers
             try
             {
                 var record = await _prestamo.SearchAnyParameter(prestamo);
+
+                ViewBag.Marca = _marca.GetAll();
+
+                ViewBag.Equipo = _Equipo.GetAll();
+
                 return View("Index", record);
 
             }
@@ -38,6 +43,11 @@ namespace Almacen.Web.Controllers
 
         public ActionResult Index()
         {
+
+            ViewBag.Marca = _marca.GetAll();
+
+            ViewBag.Equipo = _Equipo.GetAll();
+
             var all = _prestamo.GetAll();
 
             return View(all);
@@ -80,6 +90,9 @@ namespace Almacen.Web.Controllers
         // GET: EquipoController/Edit/5
         public ActionResult Edit(int id)
         {
+            ViewBag.Marcas = _marca.GetAll();
+            ViewBag.Equipo = _Equipo.GetAll();
+
             var record = _prestamo.GetById(id);
 
             return View(record);

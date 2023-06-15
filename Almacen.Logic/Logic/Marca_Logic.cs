@@ -26,10 +26,10 @@ namespace Almacen.Logic.Logic
             try
             {
                 _logger.LogWarning("Inica metodo GetAll");
-                var ListOfMarca = _dbcontext.Marca.ToList();
+                var ListOfPrestamo = _dbcontext.Marca.ToList();
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetAll");
-                return ListOfMarca;
+                return ListOfPrestamo;
             }
             catch (Exception e)
             {
@@ -63,7 +63,9 @@ namespace Almacen.Logic.Logic
                 _logger.LogWarning("Inica metodo GetAll");
                 var pMarca = _dbcontext.Marca.FirstOrDefault(s => s.Id == Id);
 
-                _dbcontext.Marca.Remove(pMarca);
+                pMarca.Activo = false;
+
+                _dbcontext.Marca.Update(pMarca);
                 var result = _dbcontext.SaveChanges();
 
                 _logger.LogWarning("Finalizo exitosamente metodo GetAll");
@@ -83,6 +85,7 @@ namespace Almacen.Logic.Logic
             {
                 _logger.LogWarning("Inica metodo Create");
 
+                marca.Activo = true;
                 _dbcontext.Marca.Add(marca);
                 _dbcontext.SaveChanges();
 
@@ -151,6 +154,8 @@ namespace Almacen.Logic.Logic
 
 
             if (marca.Id > 0) query = query.Where(s => s.Id == marca.Id);
+
+            if (marca != null) query = query.Where(s => s.Activo == marca.Activo);
 
             if (!string.IsNullOrWhiteSpace(marca.Nombre)) query = query.Where(s => s.Nombre == marca.Nombre);
 
