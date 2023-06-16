@@ -12,12 +12,12 @@ namespace Almacen.Web.Controllers
         private readonly IEquipo _Equipo;
         private readonly IMarca _marca;
 
-        public PrestamoController(IPrestamo prestamo, ILogger<PrestamoController> logger,IEquipo equipo,IMarca marca)
+        public PrestamoController(IPrestamo prestamo, ILogger<PrestamoController> logger, IEquipo equipo, IMarca marca)
         {
             _prestamo = prestamo;
             _logger = logger;
             _Equipo = equipo;
-            _marca = marca; 
+            _marca = marca;
         }
 
 
@@ -77,6 +77,16 @@ namespace Almacen.Web.Controllers
             try
             {
                 var equipocreate = _prestamo.Create(equipo);
+
+                if (equipocreate.Id <= 0)
+                {
+                    ViewBag.Mensaje = "No puedes prestar el mismo equipo mas de una vez";
+
+                    ViewBag.Marcas = _marca.GetAll();
+                    ViewBag.Equipo = _Equipo.GetAll();
+
+                    return View();
+                }
 
                 return RedirectToAction(nameof(Index));
             }

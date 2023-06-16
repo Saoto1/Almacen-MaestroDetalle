@@ -22,6 +22,8 @@ namespace Almacen.Models
         public DbSet<Marca> Marca { get; set; }
         public DbSet<Prestamo> Prestamo { get; set; }
 
+        public DbSet<TipoHerramienta>TipoHerramienta { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
 

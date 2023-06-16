@@ -20,7 +20,11 @@ namespace Almacen.Web.Controllers
             try
             {
               var record = await _Marca.SearchAnyParameter(marca);
-               return View("Index", record);
+
+                var herramientas = _Marca.GetAll_TipoHerramienta();
+                ViewBag.TipoHerramienta = herramientas;
+
+                return View("Index", record);
 
             }
             catch (Exception e)
@@ -35,6 +39,9 @@ namespace Almacen.Web.Controllers
         public ActionResult Index()
         {
             var all = _Marca.GetAll();
+
+            var herramientas = _Marca.GetAll_TipoHerramienta();
+            ViewBag.TipoHerramienta = herramientas;
 
             return View(all);
         }
@@ -51,6 +58,10 @@ namespace Almacen.Web.Controllers
         public ActionResult Create()
         {
             ViewBag.Marcas = _Marca.GetAll();
+
+            var herramientas = _Marca.GetAll_TipoHerramienta();
+            ViewBag.TipoHerramienta = herramientas;
+
             return View();
         }
 
@@ -76,6 +87,9 @@ namespace Almacen.Web.Controllers
         public ActionResult Edit(int id)
         {
             var record = _Marca.GetById(id);
+
+            var herramientas = _Marca.GetAll_TipoHerramienta();
+            ViewBag.TipoHerramienta = herramientas;
 
             return View(record);
         }

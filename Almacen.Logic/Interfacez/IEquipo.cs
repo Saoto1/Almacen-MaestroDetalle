@@ -11,6 +11,8 @@ namespace Almacen.Logic.Interfacez
     {
         public List<Equipo> GetAll();
 
+       
+
         public Equipo GetById(int Id);
 
         public int Delete(int ID);

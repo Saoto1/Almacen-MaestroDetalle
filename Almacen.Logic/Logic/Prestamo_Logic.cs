@@ -92,9 +92,12 @@ namespace Almacen.Logic.Logic
 
 
                 prestamo.Activo = true;
-                _dbcontext.Prestamo.Add(prestamo);
-                _dbcontext.SaveChanges();
 
+                var EquipoPrestado = _dbcontext.Prestamo.Where(x => x.EquipoId == prestamo.EquipoId).FirstOrDefault();
+
+                if (EquipoPrestado == null) { _dbcontext.Prestamo.Add(prestamo); _dbcontext.SaveChanges(); }
+
+            
                 _logger.LogWarning("Finalizo exitosamente metodo Create");
                 return prestamo;
             }
@@ -158,6 +161,10 @@ namespace Almacen.Logic.Logic
 
 
             if (prestamo.Id > 0) query = query.Where(s => s.Id == prestamo.Id);
+
+            if (prestamo.EquipoId > 0) query = query.Where(s => s.EquipoId == prestamo.EquipoId);
+
+            if (prestamo.MarcaId > 0) query = query.Where(s => s.MarcaId == prestamo.MarcaId);
 
             if (prestamo != null) query = query.Where(s => s.Activo == prestamo.Activo);
 

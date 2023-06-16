@@ -15,6 +15,12 @@
 
 <h4>Prestamo</h4>
 <hr />
+
+@if (ViewBag.Mensaje != null)
+{
+    <div class="alert alert-danger">@ViewBag.Mensaje</div>
+}
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
@@ -27,7 +33,6 @@
             <div class="form-group">
                 <label asp-for="Marca" class="control-label"></label>
                 <select asp-for="MarcaId" class="form-control">
-                    <option selected value="">SELECCIONAR</option>
                     @foreach (var item in marcas)
                     {
                         <option value="@item.Id">@item.Nombre</option>
@@ -38,7 +43,6 @@
             <div class="form-group">
                 <label asp-for="Equipo" class="control-label"></label>
                 <select asp-for="EquipoId" class="form-control">
-                    <option selected value="">SELECCIONAR</option>
                     @foreach (var item in equipos)
                     {
                         <option value="@item.Id">@item.NombreEquipo</option>

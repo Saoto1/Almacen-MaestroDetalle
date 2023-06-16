@@ -38,6 +38,24 @@ namespace Almacen.Logic.Logic
             }
         }
 
+
+        public List<TipoHerramienta> GetAll_TipoHerramienta()
+        {
+            try
+            {
+                _logger.LogWarning("Inica metodo GetAll_TipoHerramienta");
+                var ListOfPrestamo = _dbcontext.TipoHerramienta.ToList();
+
+                _logger.LogWarning("Finalizo exitosamente metodo GetAll_TipoHerramienta");
+                return ListOfPrestamo;
+            }
+            catch (Exception e)
+            {
+                _logger.LogError($"Ocurrio en el metodo: GetAll_TipoHerramienta  Clase: Marca_Logic  Mensaje:{e.Message} InnerException:{e.InnerException}");
+                return new List<TipoHerramienta>() { };
+            }
+        }
+
         public Marca GetById(int Id)
         {
             try
@@ -110,7 +128,7 @@ namespace Almacen.Logic.Logic
 
                 pMarca.Nombre = marca.Nombre;
                 pMarca.Descripcion = marca.Descripcion;
-                pMarca.TipoHerramienta = marca.TipoHerramienta;
+                pMarca.TipoHerramientaId = marca.TipoHerramientaId;
                 pMarca.Exactitud = marca.Exactitud;
 
                 _dbcontext.Marca.Update(pMarca);
@@ -161,7 +179,7 @@ namespace Almacen.Logic.Logic
 
             if (!string.IsNullOrWhiteSpace(marca.Descripcion)) query = query.Where(s => s.Descripcion == marca.Descripcion);
 
-            if (!string.IsNullOrWhiteSpace(marca.TipoHerramienta)) query = query.Where(s => s.TipoHerramienta == marca.TipoHerramienta);
+            if (marca.TipoHerramientaId > 0) query = query.Where(s => s.TipoHerramientaId == marca.TipoHerramientaId);
 
             if (marca.Exactitud > 0) query = query.Where(s => s.Exactitud == marca.Exactitud);
 

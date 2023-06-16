@@ -45,9 +45,9 @@
                 <div class="col-md-2">
                     <label class="control-label">Activo</label>
                     <select name="Activo" class="form-control">
-                        <option selected value="1">Activo</option>
+                        <option selected value="true">Activo</option>
 
-                        <option value="2">Inactivo</option>
+                        <option value="false">Inactivo</option>
 
                     </select>
 
@@ -147,10 +147,10 @@
                     @Html.DisplayFor(modelItem => item.Estado)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.MarcaId)
+                    @Html.DisplayFor(modelItem => marcas.Where(x => x.Id == item.MarcaId).FirstOrDefault().Nombre)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.EquipoId)
+                    @Html.DisplayFor(modelItem => equipo.Where(x => x.Id == item.EquipoId).FirstOrDefault().NombreEquipo)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.Activo)

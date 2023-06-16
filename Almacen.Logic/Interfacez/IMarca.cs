@@ -12,6 +12,8 @@ namespace Almacen.Logic.Interfacez
 
         public List<Marca>    GetAll();
 
+        public List<TipoHerramienta> GetAll_TipoHerramienta();
+
         public Marca GetById(int Id);
 
         public int Delete(int ID);
